@@ -1,6 +1,7 @@
+/*
 function onSignIn(googleUser) {
     var profile = googleUser.getBasicProfile();
-    //console.log('User is: '+ JSON.stringify(profile))
+    console.log('User is: '+ JSON.stringify(profile))
     console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
     console.log('Name: ' + profile.getName());
     console.log('Image URL: ' + profile.getImageUrl());
@@ -14,26 +15,26 @@ function onSignIn(googleUser) {
     image.setAttribute('src', profile.getImageUrl());
     var email = document.querySelector('#gmail');
     element.innerText = 'Email: ' + profile.getEmail();
+    
+}*/
 
-}
-
-var image = document.querySelector('#gimg');
-var ename = document.querySelector('#gname');
-var email = document.querySelector('#gmail');
+var gimage = document.querySelector('#gimg');
+var gname = document.querySelector('#gname');
+var gmail = document.querySelector('#gmail');
 var gso = document.querySelector('#signout');
-image.style.visibility = 'hidden';
-ename.style.visibility = 'hidden';
-email.style.visibility = 'hidden';
+gimage.style.visibility = 'hidden';
+gname.style.visibility = 'hidden';
+gmail.style.visibility = 'hidden';
 gso.style.visibility = 'hidden';
 
 function onSuccess(googleUser) {
     var profile = googleUser.getBasicProfile();
-    image.setAttribute('src', profile.getImageUrl());
-    ename.innerText = 'Name: ' + profile.getName();
-    email.innerText = 'Email: ' + profile.getEmail();
-    image.style.visibility = 'visible';
-    ename.style.visibility = 'visible';
-    email.style.visibility = 'visible';
+    gimage.setAttribute('src', profile.getImageUrl());
+    gname.innerText = 'Name: ' + profile.getName();
+    gmail.innerText = 'Email: ' + profile.getEmail();
+    gimage.style.visibility = 'visible';
+    gname.style.visibility = 'visible';
+    gmail.style.visibility = 'visible';
     gso.style.visibility = 'visible';
 }
 function onFailure(error) {
@@ -53,9 +54,9 @@ function renderButton() {
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
-        image.style.visibility = 'hidden';
-        ename.style.visibility = 'hidden';
-        email.style.visibility = 'hidden';
+        gimage.style.visibility = 'hidden';
+        gname.style.visibility = 'hidden';
+        gmail.style.visibility = 'hidden';
         gso.style.visibility = 'hidden';
     });
 }
@@ -80,7 +81,14 @@ statusChangeCallback(response);
 });
 }*/
 
-
+var fimage = document.querySelector('#fimg');
+var fname = document.querySelector('#fname');
+var fmail = document.querySelector('#fmail');
+var flo = document.querySelector('#logout');
+fimage.style.visibility = 'hidden';
+fname.style.visibility = 'hidden';
+fmail.style.visibility = 'hidden';
+flo.style.visibility = 'hidden';
 
 
 
@@ -116,6 +124,7 @@ fjs.parentNode.insertBefore(js, fjs);
 function statusChangeCallback(response){
     if(response.status === 'connected'){
         console.log('Logged in and authenticated.');
+        
     } else {
         console.log('Not Authenticated.');
     }
@@ -128,13 +137,20 @@ function checkLoginState() {
 function testAPI(){
     FB.api('/me?fields=name,email', function(response){
         if(response && !response.error){
-            console.log(response);
+            console.log("response:"+response);
             profile(response);
         }
     })
 }
 function profile(user){
-
+    
+        fimage.setAttribute('src', user.getImageUrl());
+        fname.innerText = 'Name: ' + user.name;
+        fmail.innerText = 'Email: ' + user.email;
+        fimage.style.visibility = 'visible';
+        fname.style.visibility = 'visible';
+        fmail.style.visibility = 'visible';
+        flo.style.visibility = 'visible';
 }
 /*
 function fbLogin(){
