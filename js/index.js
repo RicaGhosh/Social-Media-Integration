@@ -107,7 +107,7 @@ window.fbAsyncInit = function() {
     });
     
     FB.AppEvents.logPageView();   
-    */
+    
     FB.login(function(response){
         if (response.authResponse){
             console.log("Welcome! Fetching your information");
@@ -117,10 +117,10 @@ window.fbAsyncInit = function() {
         } else {
             console.log('User cancelled login in.')
         }
-    });
-    /*FB.getLoginStatus(function(response){
-        statusChangeCallback(response);
     });*/
+    FB.getLoginStatus(function(response){
+        statusChangeCallback(response);
+    });
 };
 
 (function(d, s, id){
@@ -132,7 +132,17 @@ fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
 function statusChangeCallback(response){
-    if(response.status === 'connected'){
+
+    if (response.authResponse){
+        console.log("Welcome! Fetching your information");
+        FB.api('/me', function(response){
+            console.log('Good to see you'+response.name);
+        });
+    } else {
+        console.log('User cancelled login in.')
+    }
+
+    /*if(response.status === 'connected'){
         console.log('Logged in and authenticated.');
         FB.api('/me?fields=picture.type(large),name,email', function(response){
             console.log(response)
@@ -146,7 +156,7 @@ function statusChangeCallback(response){
         })
     } else {
         console.log('Not Authenticated.');
-    }
+    }*/
 }
 
 /*function testAPI(){
