@@ -97,7 +97,7 @@ window.fbAsyncInit = function() {
         appId      : '156488543128442',
         cookie     : true,
         xfbml      : true,
-        version    : 'v11.0'
+        version    : 'v10.0'
     });
     /*
     FB.getLoginStatus(function(response) {
@@ -108,7 +108,8 @@ window.fbAsyncInit = function() {
     
     FB.AppEvents.logPageView();   
     */
-    FB.getLoginStatus(function(response){
+    FB.checkLoginState()(function(response){
+        
         statusChangeCallback(response);
     });
 };
