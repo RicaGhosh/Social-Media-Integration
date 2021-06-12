@@ -108,7 +108,7 @@ window.fbAsyncInit = function() {
     
     FB.AppEvents.logPageView();   
     */
-    FB.checkLoginState()(function(response){
+    FB.getLoginStatus(function(response){
         
         statusChangeCallback(response);
     });
