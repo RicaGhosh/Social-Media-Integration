@@ -14,7 +14,7 @@
         <meta name="google-signin-client_id" content="117262438097-v74on518q561rpfsnasu2vgsu77362i8.apps.googleusercontent.com">
         <!--script src="https://apis.google.com/js/platform.js" async defer></script-->
         <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-        
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
         
     </head>
 
@@ -39,7 +39,7 @@
                 <div class="right">
                     <div class="heading2">FACEBOOK</div>
                     
-                    <fb:login-button id="fb-login" scope="public_profile,email" onlogin="getLoginState();"></fb:login-button>
+                    <fb:login-button id="fb-login" scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
                     <div id="fimage"><img id="fimg" src=""></div>
                     <div id="fname">Name</div>
                     <div id="fmail">Mail</div>
