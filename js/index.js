@@ -140,6 +140,9 @@ function testAPI(){
             console.log("response:"+response);
             profile(response);
         }
+        else {
+            console.log("Error: "+response.error)
+        }
     })
 }
 function profile(user){
