@@ -124,18 +124,24 @@ fjs.parentNode.insertBefore(js, fjs);
 function statusChangeCallback(response){
     if(response.status === 'connected'){
         console.log('Logged in and authenticated.');
-        
+        FB.api('/me?fields=picture.type(large),name,email', function(response){
+            console.log(response)
+            if(response && !response.error){
+                console.log(response.data.url);
+                //profile(response);
+            }
+            else {
+                console.log("Error: "+response.error)
+            }
+        })
     } else {
         console.log('Not Authenticated.');
     }
 }
-function checkLoginState() {
-    FB.getLoginStatus(function(response) {
-      statusChangeCallback(response);
-    });
-}
-function testAPI(){
-    FB.api('/me?fields=name,email', function(response){
+
+/*function testAPI(){
+    FB.api('/me?fields=picture.type(large),name,email', function(response){
+        console.log(response)
         if(response && !response.error){
             console.log("response:"+response);
             profile(response);
@@ -144,7 +150,7 @@ function testAPI(){
             console.log("Error: "+response.error)
         }
     })
-}
+}*/
 function profile(user){
     
         fimage.setAttribute('src', user.getImageUrl());
