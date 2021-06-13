@@ -90,7 +90,9 @@ fname.style.visibility = 'hidden';
 fmail.style.visibility = 'hidden';
 flo.style.visibility = 'hidden';
 */
-
+document.getElementById('fb-login').addEventListener('click',function(){
+    FB.login(statusChangeCallback, {scope: 'email, public_profile', return_scopes: true});
+}, false);
 
 window.fbAsyncInit = function() {
     FB.init({
