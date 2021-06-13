@@ -105,14 +105,14 @@ window.fbAsyncInit = function() {
         version    : 'v11.0'
     });
 
-    /*FB.getLoginStatus(function(response) {
+    FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
             console.log("User authorized.");
             //getUserData();
         } else {
             console.log("User not Authorized.");
         }
-    });*/
+    });
 };
 
 (function(d, s, id){
