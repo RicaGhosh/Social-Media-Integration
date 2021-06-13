@@ -77,7 +77,8 @@ function getUserData(){
     FB.api('/me', {fields: 'name,email,picture'}, function(response) {
         console.log(response.name);
         console.log(response.email);
-        console.log("http://graph.facebook.com/"+response.id+"/picture?type=square");
+        //console.log("http://graph.facebook.com/"+response.id+"/picture?type=square");
+        console.log("/{user-id}/picture")
         fimage.setAttribute('src', response.id.picture);
         fname.innerHTML = 'Name: ' + response.name;
         fmail.innerHTML = 'Email: ' + response.email;
