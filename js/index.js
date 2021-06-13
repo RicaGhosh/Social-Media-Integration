@@ -86,7 +86,7 @@ function getUserData(){
         //console.log(response.user-id);
         //console.log("http://graph.facebook.com/"+response.id+"/picture?type=square");
         //console.log("/{user-id}/picture")
-        fimage.setAttribute('src', "http://graph.facebook.com/"+response.id+"/picture?type=square");
+        fimage.setAttribute('src', response.picture.data.url);
         fname.innerHTML = 'Name: ' + response.name;
         fmail.innerHTML = 'Email: ' + response.email;
 
