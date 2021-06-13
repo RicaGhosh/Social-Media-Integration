@@ -69,16 +69,16 @@ var fimage = document.querySelector('#fimg');
 var fname = document.querySelector('#fname');
 var fmail = document.querySelector('#fmail');
 var flo = document.querySelector('#logout');
-/*
+
 fimage.style.visibility = 'hidden';
 fname.style.visibility = 'hidden';
 fmail.style.visibility = 'hidden';
 flo.style.visibility = 'hidden';
-*/
+
 function getUserData(){
     FB.api('/me', {fields: 'name,email,picture'}, function(response) {
-        console.log(response)
-        console.log(response.picture.data.url)
+        //console.log(response)
+        //console.log(response.picture.data.url)
         console.log(response.id);
         console.log(response.name);
         console.log(response.email);
@@ -86,7 +86,7 @@ function getUserData(){
         //console.log(response.user-id);
         //console.log("http://graph.facebook.com/"+response.id+"/picture?type=square");
         //console.log("/{user-id}/picture")
-        fimage.setAttribute('src', response.picture.data.url);
+        //fimage.setAttribute('src', response.picture.data.url);
         fname.innerHTML = 'Name: ' + response.name;
         fmail.innerHTML = 'Email: ' + response.email;
 
@@ -105,14 +105,14 @@ window.fbAsyncInit = function() {
         version    : 'v11.0'
     });
 
-    FB.getLoginStatus(function(response) {
+    /*FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
             console.log("User authorized.");
             //getUserData();
         } else {
             console.log("User not Authorized.");
         }
-    });
+    });*/
 };
 
 (function(d, s, id){
