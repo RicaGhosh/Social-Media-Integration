@@ -69,12 +69,12 @@ var fimage = document.querySelector('#fimg');
 var fname = document.querySelector('#fname');
 var fmail = document.querySelector('#fmail');
 var flo = document.querySelector('#logout');
-
+/*
 fimage.style.visibility = 'hidden';
 fname.style.visibility = 'hidden';
 fmail.style.visibility = 'hidden';
 flo.style.visibility = 'hidden';
-
+*/
 function getUserData(){
     FB.api('/me', {fields: 'name,email,picture'}, function(response) {
         console.log(response)
