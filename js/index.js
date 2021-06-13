@@ -78,7 +78,7 @@ flo.style.visibility = 'hidden';
 function getUserData(){
     FB.api('/me', {fields: 'name,email,/{user-id}/picture'}, function(response) {
         console.log(response)
-        console.log(response.data.url)
+        console.log(response.data)
         console.log(response.id);
         console.log(response.name);
         console.log(response.email);
