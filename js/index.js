@@ -85,11 +85,11 @@ var fimage = document.querySelector('#fimg');
 var fname = document.querySelector('#fname');
 var fmail = document.querySelector('#fmail');
 var flo = document.querySelector('#logout');
-fimage.style.visibility = 'hidden';
+/*fimage.style.visibility = 'hidden';
 fname.style.visibility = 'hidden';
 fmail.style.visibility = 'hidden';
 flo.style.visibility = 'hidden';
-
+*/
 
 
 window.fbAsyncInit = function() {
@@ -124,15 +124,26 @@ window.fbAsyncInit = function() {
 };
 
 (function(d, s, id){
-var js, fjs = d.getElementsByTagName(s)[0];
-if (d.getElementById(id)) {return;}
-js = d.createElement(s); js.id = id;
-js.src = "https://connect.facebook.net/en_US/sdk.js";
-fjs.parentNode.insertBefore(js, fjs);
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {return;}
+    js = d.createElement(s); js.id = id;
+    js.src = "https://connect.facebook.net/en_US/sdk.js";
+    fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
 function statusChangeCallback(response){
-
+    console.log(response);
+    if (accessToken){
+        var accessToken = response.authResponse.accessToken;
+    }
+    if (response.status === 'connected'){
+        testAPI2(accessToken);
+    } else if (response.status === 'not_authorized'){
+        console.log("Err");
+    } else {
+        console.log("Err2");
+    }
+    /*
     if (response.authResponse){
         console.log("Welcome! Fetching your information");
         FB.api('/me', function(response){
@@ -140,7 +151,7 @@ function statusChangeCallback(response){
         });
     } else {
         console.log('User cancelled login in.')
-    }
+    }*/
 
     /*if(response.status === 'connected'){
         console.log('Logged in and authenticated.');
@@ -157,6 +168,24 @@ function statusChangeCallback(response){
     } else {
         console.log('Not Authenticated.');
     }*/
+}
+
+function checkLoginState(){
+    FB.getLoginStatus(function(response){
+        statusChangeCallback(response);
+    });
+}
+
+function testAPI2(){
+    FB.api('/me', {fields: 'id,name'},
+    function (response){
+        var user_id = response.id;
+        var name = response.name;
+        var type = 1;
+        console.log(user_id+' '+name+" "+type)
+        })
+    }
+    )
 }
 
 /*function testAPI(){
