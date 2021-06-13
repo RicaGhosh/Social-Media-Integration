@@ -80,7 +80,7 @@ function getUserData(){
         console.log(response.id);
         console.log(response.name);
         console.log(response.email);
-        console.log(response.photo-id);
+        //console.log(response.photo-id);
         console.log(response.user-id);
         //console.log("http://graph.facebook.com/"+response.id+"/picture?type=square");
         //console.log("/{user-id}/picture")
