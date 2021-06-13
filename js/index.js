@@ -124,10 +124,13 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 
 document.getElementById('loginBtn').addEventListener('click', function() {
+
     FB.login(function(response){
         if(response.authResponse){
             console.log("User just authorized.");
             getUserData();
+        } else {
+            console.log("Not Authorized.")
         }
     }, {scope: 'email, public_profile', return_scopes: true});
 }, false);
