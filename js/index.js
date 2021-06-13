@@ -76,7 +76,7 @@ fmail.style.visibility = 'hidden';
 flo.style.visibility = 'hidden';
 
 function getUserData(){
-    FB.api('/me', {fields: 'name,email,/{user-id}/picture'}, function(response) {
+    FB.api('/me', {fields: 'name,email,picture'}, function(response) {
         console.log(response)
         console.log(response.data)
         console.log(response.id);
