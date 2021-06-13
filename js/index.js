@@ -76,13 +76,13 @@ fmail.style.visibility = 'hidden';
 flo.style.visibility = 'hidden';
 
 function getUserData(){
-    FB.api('/me', {fields: 'name,email,picture'}, function(response) {
+    FB.api('/me', {fields: 'name,email,/{user-id}/picture'}, function(response) {
         console.log(response.id);
         console.log(response.name);
         console.log(response.email);
         //console.log("http://graph.facebook.com/"+response.id+"/picture?type=square");
         //console.log("/{user-id}/picture")
-        fimage.setAttribute('src', "http://graph.facebook.net/"+response.id+"/picture?type=square");
+        fimage.setAttribute('src', "http://graph.facebook.com/"+response.id+"/picture?type=square");
         fname.innerHTML = 'Name: ' + response.name;
         fmail.innerHTML = 'Email: ' + response.email;
 
