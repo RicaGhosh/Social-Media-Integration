@@ -178,17 +178,16 @@ function checkLoginState(){
     });
 }
 
-function testAPI2(){
+/*function testAPI2(){
     FB.api('/me', {fields: 'id,name'},
     function (response){
         var user_id = response.id;
         var name = response.name;
         var type = 1;
         console.log(user_id+' '+name+" "+type)
-        })
-    }
-    )
-}
+        }
+    );
+}*/
 
 /*function testAPI(){
     FB.api('/me?fields=picture.type(large),name,email', function(response){
