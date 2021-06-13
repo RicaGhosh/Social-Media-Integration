@@ -36,6 +36,7 @@ function onSuccess(googleUser) {
     gname.style.visibility = 'visible';
     gmail.style.visibility = 'visible';
     gso.style.visibility = 'visible';
+    console.log(profile.getImageUrl())
 }
 function onFailure(error) {
     console.log(error);
@@ -76,8 +77,8 @@ function getUserData(){
     FB.api('/me', {fields: 'name,email,picture'}, function(response) {
         console.log(response.name);
         console.log(response.email);
-        
-        fimage.setAttribute('src', response.picture);
+        console.log("http://graph.facebook.com/"+response.id+"/picture?type=square");
+        fimage.setAttribute('src', response.id.picture);
         fname.innerHTML = 'Name: ' + response.name;
         fmail.innerHTML = 'Email: ' + response.email;
         fimage.style.visibility = 'visible';
@@ -124,7 +125,7 @@ document.getElementById('loginBtn').addEventListener('click', function() {
 
 document.getElementById('logout').addEventListener('click', function() {
     FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
+        if (response.authResponse) {
             FB.logout(function(response){
                 console.log("Logged Out.")
                 fimage.style.visibility = 'hidden';
@@ -132,6 +133,8 @@ document.getElementById('logout').addEventListener('click', function() {
                 fmail.style.visibility = 'hidden';
                 flo.style.visibility = 'hidden';
             });
+        } else {
+            console.log("Cancelled Logout.")
         }
     });
 });
