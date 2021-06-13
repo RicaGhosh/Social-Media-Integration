@@ -122,6 +122,20 @@ document.getElementById('loginBtn').addEventListener('click', function() {
     }, {scope: 'email, public_profile', return_scopes: true});
 }, false);
 
+document.getElementById('logout').addEventListener('click', function() {
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            FB.logout(function(response){
+                console.log("Logged Out.")
+                fimage.style.visibility = 'hidden';
+                fname.style.visibility = 'hidden';
+                fmail.style.visibility = 'hidden';
+                flo.style.visibility = 'hidden';
+            });
+        }
+    });
+});
+
 
 
 
