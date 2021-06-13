@@ -22,6 +22,7 @@ var gimage = document.querySelector('#gimg');
 var gname = document.querySelector('#gname');
 var gmail = document.querySelector('#gmail');
 var gso = document.querySelector('#signout');
+
 gimage.style.visibility = 'hidden';
 gname.style.visibility = 'hidden';
 gmail.style.visibility = 'hidden';
@@ -32,11 +33,11 @@ function onSuccess(googleUser) {
     gimage.setAttribute('src', profile.getImageUrl());
     gname.innerText = 'Name: ' + profile.getName();
     gmail.innerText = 'Email: ' + profile.getEmail();
+
     gimage.style.visibility = 'visible';
     gname.style.visibility = 'visible';
     gmail.style.visibility = 'visible';
     gso.style.visibility = 'visible';
-    console.log(profile.getImageUrl())
 }
 function onFailure(error) {
     console.log(error);
@@ -68,6 +69,7 @@ var fimage = document.querySelector('#fimg');
 var fname = document.querySelector('#fname');
 var fmail = document.querySelector('#fmail');
 var flo = document.querySelector('#logout');
+
 fimage.style.visibility = 'hidden';
 fname.style.visibility = 'hidden';
 fmail.style.visibility = 'hidden';
@@ -79,9 +81,10 @@ function getUserData(){
         console.log(response.email);
         //console.log("http://graph.facebook.com/"+response.id+"/picture?type=square");
         //console.log("/{user-id}/picture")
-        fimage.setAttribute('src', "/{user-id}/picture");
+        fimage.setAttribute('src', "http://graph.facebook.net/"+response.id+"/picture?type=square");
         fname.innerHTML = 'Name: ' + response.name;
         fmail.innerHTML = 'Email: ' + response.email;
+
         fimage.style.visibility = 'visible';
         fname.style.visibility = 'visible';
         fmail.style.visibility = 'visible';
