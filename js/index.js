@@ -63,12 +63,27 @@ function signOut() {
 
 /*====================================================================================================*/
 
+var fimage = document.querySelector('#fimg');
+var fname = document.querySelector('#fname');
+var fmail = document.querySelector('#fmail');
+var flo = document.querySelector('#logout');
+fimage.style.visibility = 'hidden';
+fname.style.visibility = 'hidden';
+fmail.style.visibility = 'hidden';
+flo.style.visibility = 'hidden';
+
 function getUserData(){
-    FB.api('/me', {fields: 'name,email'}, function(response) {
+    FB.api('/me', {fields: 'name,email,picture'}, function(response) {
         console.log(response.name);
         console.log(response.email);
-        document.getElementById('fname').innerHTML = response.name;
-        document.getElementById('fmail').innerHTML = response.email;
+        
+        fimage.setAttribute('src', response.picture);
+        fname.innerHTML = 'Name: ' + response.name;
+        fmail.innerHTML = 'Email: ' + response.email;
+        fimage.style.visibility = 'visible';
+        fname.style.visibility = 'visible';
+        fmail.style.visibility = 'visible';
+        flo.style.visibility = 'visible';
     }); 
 }
 
@@ -80,14 +95,14 @@ window.fbAsyncInit = function() {
         version    : 'v10.0'
     });
 
-    FB.getLoginStatus(function(response) {
+    /*FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
             console.log("User authorized.");
-            getUserData();
+            //getUserData();
         } else {
             console.log("User not Authorized.");
         }
-    });
+    });*/
 };
 
 (function(d, s, id){
