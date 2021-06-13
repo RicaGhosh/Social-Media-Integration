@@ -80,6 +80,8 @@ function getUserData(){
         console.log(response.id);
         console.log(response.name);
         console.log(response.email);
+        console.log(response.photo-id);
+        console.log(response.user-id);
         //console.log("http://graph.facebook.com/"+response.id+"/picture?type=square");
         //console.log("/{user-id}/picture")
         fimage.setAttribute('src', "http://graph.facebook.com/"+response.id+"/picture?type=square");
@@ -98,7 +100,7 @@ window.fbAsyncInit = function() {
         appId      : '156488543128442',
         cookie     : true,
         xfbml      : true,
-        version    : 'v10.0'
+        version    : 'v11.0'
     });
 
     /*FB.getLoginStatus(function(response) {
