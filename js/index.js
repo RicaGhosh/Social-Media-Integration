@@ -113,8 +113,8 @@ window.fbAsyncInit = function() {
             console.log("User not Authorized.");
         }
     });*/
-    FB.AppEvents.logPageView();
-    checkLoginState()
+    //FB.AppEvents.logPageView();
+    //checkLoginState()
 };
 
 (function(d, s, id){
