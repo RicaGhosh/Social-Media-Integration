@@ -1,22 +1,4 @@
-/*
-function onSignIn(googleUser) {
-    var profile = googleUser.getBasicProfile();
-    console.log('User is: '+ JSON.stringify(profile))
-    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-    console.log('Name: ' + profile.getName());
-    console.log('Image URL: ' + profile.getImageUrl());
-    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-
-    var id_token = googleUser.getAuthResponse().id_token;
-    console.log("ID Token: " + id_token);
-    var element = document.querySelector('#gname');
-    element.innerText = 'Name: ' + profile.getName();
-    var image = document.querySelector('#gimg');
-    image.setAttribute('src', profile.getImageUrl());
-    var email = document.querySelector('#gmail');
-    element.innerText = 'Email: ' + profile.getEmail();
-    
-}*/
+/*============================== Google Login ===============================*/
 
 var gimage = document.querySelector('#gimg');
 var gname = document.querySelector('#gname');
@@ -39,9 +21,11 @@ function onSuccess(googleUser) {
     gmail.style.visibility = 'visible';
     gso.style.visibility = 'visible';
 }
+
 function onFailure(error) {
     console.log(error);
 }
+
 function renderButton() {
     gapi.signin2.render('my-signin2', {
         'scope': 'profile email',
@@ -53,6 +37,7 @@ function renderButton() {
         'onfailure': onFailure
 });
 }
+
 function signOut() {
     var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
@@ -63,7 +48,7 @@ function signOut() {
     });
 }
 
-/*====================================================================================================*/
+/*================================ FaceBook Login ===================================*/
 
 var fimage = document.querySelector('#fimg');
 var fname = document.querySelector('#fname');
@@ -75,8 +60,6 @@ fname.style.visibility = 'hidden';
 fmail.style.visibility = 'hidden';
 flo.style.visibility = 'hidden';
 
-
-
 window.fbAsyncInit = function() {
     FB.init({
         appId      : '156488543128442',
@@ -84,17 +67,6 @@ window.fbAsyncInit = function() {
         xfbml      : true,
         version    : 'v11.0'
     });
-
-    /*FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
-            console.log("User authorized.");
-            //getUserData();
-        } else {
-            console.log("User not Authorized.");
-        }
-    });*/
-    //FB.AppEvents.logPageView();
-    //checkLoginState()
 };
 
 (function(d, s, id){
@@ -108,13 +80,10 @@ window.fbAsyncInit = function() {
 function checkLoginState() {
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
-            console.log("User authorized.");
             getUserData();
         } else {
-            console.log("User not Authorized yet.");
             FB.login(function(response){
                 if(response.authResponse){
-                    console.log("User just authorized.");
                     getUserData();
                 } else {
                     console.log("Not Authorized.")
@@ -122,20 +91,10 @@ function checkLoginState() {
             }, {scope: 'email, public_profile', return_scopes: true});
         }
     });
-    
 }
 
 function getUserData(){
     FB.api('/me', {fields: 'name,email,picture.type(large)'}, function(response) {
-        console.log(response)
-        console.log(response.picture.data.url)
-        console.log(response.id);
-        console.log(response.name);
-        console.log(response.email);
-        //console.log(response.photo-id);
-        //console.log(response.user-id);
-        //console.log("http://graph.facebook.com/"+response.id+"/picture?type=square");
-        //console.log("/{user-id}/picture")
         fimage.setAttribute('src', response.picture.data.url);
         fname.innerHTML = 'Name: ' + response.name;
         fmail.innerHTML = 'Email: ' + response.email;
@@ -151,14 +110,13 @@ function logout() {
     FB.getLoginStatus(function(response) {
         if (response.authResponse) {
             FB.logout(function(response){
-                console.log("Logged Out.")
                 fimage.style.visibility = 'hidden';
                 fname.style.visibility = 'hidden';
                 fmail.style.visibility = 'hidden';
                 flo.style.visibility = 'hidden';
             });
         } else {
-            console.log("Cancelled Logout.")
+            console.log("Unauthorized Logout.")
         }
     });
 }

@@ -2,34 +2,33 @@
 <html lang="en">
 
     <head>
+
+        <!-- Meta Tags -->
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="117262438097-v74on518q561rpfsnasu2vgsu77362i8.apps.googleusercontent.com">
+        
+        <!-- Title -->
         <title>Social Media Integration</title>
         
         <!-- CSS only -->
-
         <link rel="stylesheet" href="css/index.css">
-        <!--link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous"-->
-        
-        <meta name="google-signin-scope" content="profile email">
-        <meta name="google-signin-client_id" content="117262438097-v74on518q561rpfsnasu2vgsu77362i8.apps.googleusercontent.com">
-        <!--script src="https://apis.google.com/js/platform.js" async defer></script-->
-        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" nonce="ypyne179"></script>
-        
+
     </head>
 
     <body>
+
         <div class="container">
+
             <img src="images/bg.jpg">
 
             <div class="content">
 
                 <div class="left">
-                    <div class="heading">GOOGLE</div>
-                    <!--div class="g-signin2" data-onsuccess="onSignIn"></div-->
-                    <div id="my-signin2"></div>
 
+                    <div class="heading">GOOGLE</div>
+                    <div id="my-signin2"></div>
                     <div id="gimage"><img id="gimg" src=""></div>
                     <div id="gname">Name</div>
                     <div id="gmail">Mail</div>
@@ -38,31 +37,25 @@
                 </div>
 
                 <div class="right">
+
                     <div class="heading2">FACEBOOK</div>
-                    
                     <fb:login-button id="loginBtn" scope="public_profile,email" width="" size="large" button-type="login_with" layout="default" continue-as="true" onlogin="checkLoginState();"></fb:login-button>
-                    <!--button id="loginBtn">Login with Facebook</!--button-->
-                    <!--a id="facebook-button" class="btn btn-block btn-social btn-facebook">
-                        <i class="fa fa-facebook">Sign in with Facebook</i>
-                    </!--a-->
-                    <!--button class="loginBtn loginBtn--facebook">Sign In with Facebook</!--button-->
-                    <!--div id="loginBtn">
-                    <div class="fb-login-button" data-width="" data-size="large" data-button-type="login_with"
-                    data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
-                    </div-->
                     <div id="fimage"><img id="fimg" src=""></div>
                     <div id="fname">Name</div>
                     <div id="fmail">Mail</div>
                     <button id="logout"><a href="#" onclick="logout();">Log Out</a></button>
-                    <!--div id="status"></div>
-                    <a href="javascript:void(0);" id="fbLink" onclick="fbLogin();"><fb:login-button id="fb-login" scope="public_profile,email" onlogin="checkLoginState();">
-                    </fb:login-button></a>
-                    <div-- class="ac-data" id="userData"></div-->
-
+                    
                 </div>
 
             </div>
+
         </div>
+
+        <!-- JavaScript -->
+        <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v11.0" nonce="ypyne179"></script>
         <script src="js/index.js"></script>
+
     </body>
+
 </html>

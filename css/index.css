@@ -11,7 +11,6 @@ body {
     padding: 0 0;
     margin: 0 0;
     background-position:  center center;
-    
     left: 0;
     right: 0;
     top: 0;
@@ -105,7 +104,6 @@ body {
     margin: auto;
     font-size: xx-large;
     font-weight: 800;
-    
     background-position:  center center;
     letter-spacing: normal;
     z-index: 3;
@@ -120,7 +118,6 @@ body {
     margin: auto;
     font-size: xx-large;
     font-weight: 800;
-    
     background-position:  center center;
     letter-spacing: normal;
     z-index: 3;
@@ -132,9 +129,7 @@ body {
     position: relative;
     padding: 0.5em 0.5em;
     margin: auto;
-    
     background-position:  center center;
-    
     z-index: 3;
 }
 
@@ -144,9 +139,7 @@ body {
     position: relative;
     padding: 0.5em 0.5em;
     margin: auto;
-    
     background-position:  center center;
-    
     z-index: 3;
 }
 
@@ -270,28 +263,4 @@ body {
     color: #fff;
     font-size: medium;
     font-weight: 500;
-
 }
- /*
-.right #fbLink {
-    height: fit-content;
-    width: fit-content;
-    position: relative;
-    padding: 0.5em 0.5em;
-    margin: auto;
-    
-    background-position:  center center;
-    
-    z-index: 3;
-}
-.right #fbLink #fb-login {
-    height: fit-content;
-    width: fit-content;
-    position: relative;
-    padding: 0.5em 0.5em;
-    margin: auto;
-    
-    background-position:  center center;
-    
-    z-index: 3;
-}*/
