@@ -129,17 +129,18 @@ document.getElementById('loginBtn').addEventListener('click', function() {
             console.log("User authorized.");
             //getUserData();
         } else {
-            console.log("User not Authorized.");
+            console.log("User not Authorized yet.");
+            FB.login(function(response){
+                if(response.authResponse){
+                    console.log("User just authorized.");
+                    getUserData();
+                } else {
+                    console.log("Not Authorized.")
+                }
+            }, {scope: 'email, public_profile', return_scopes: true});
         }
     });
-    FB.login(function(response){
-        if(response.authResponse){
-            console.log("User just authorized.");
-            getUserData();
-        } else {
-            console.log("Not Authorized.")
-        }
-    }, {scope: 'email, public_profile', return_scopes: true});
+    
 }, false);
 
 document.getElementById('logout').addEventListener('click', function() {
