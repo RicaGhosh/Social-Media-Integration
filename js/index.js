@@ -147,7 +147,7 @@ function getUserData(){
     }); 
 }
 
-document.getElementById('logout').addEventListener('click', function() {
+function logout() {
     FB.getLoginStatus(function(response) {
         if (response.authResponse) {
             FB.logout(function(response){
@@ -161,7 +161,7 @@ document.getElementById('logout').addEventListener('click', function() {
             console.log("Cancelled Logout.")
         }
     });
-});
+}
 
 
 
