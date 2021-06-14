@@ -123,7 +123,7 @@ window.fbAsyncInit = function() {
     fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));
 
-function checkLoginState() {
+document.getElementById('loginBtn').addEventListener('click', function() {
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
             console.log("User authorized.");
@@ -141,7 +141,7 @@ function checkLoginState() {
         }
     });
     
-}
+}, false);
 
 document.getElementById('logout').addEventListener('click', function() {
     FB.getLoginStatus(function(response) {
