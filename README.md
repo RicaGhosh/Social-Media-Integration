@@ -1,2 +1,7 @@
 # Social-Media-Integration
-Social Media Login Integration into website using API
+The Sparks Foundation Internship Project : Social Media Integration
+
+A single-page Web Application for Logging into Social Media Applications like, Google and Facebook. This project is made by integrating Google API and Facebook Graph API. After login, the profile details (Name, Email & Profile photo) are shown.
+
+No backend or server-side programming was used.
+Made using : HTML, CSS and JavaScript
