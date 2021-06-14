@@ -77,8 +77,8 @@ flo.style.visibility = 'hidden';
 
 function getUserData(){
     FB.api('/me', {fields: 'name,email,picture'}, function(response) {
-        //console.log(response)
-        //console.log(response.picture.data.url)
+        console.log(response)
+        console.log(response.picture.data.url)
         console.log(response.id);
         console.log(response.name);
         console.log(response.email);
@@ -86,7 +86,7 @@ function getUserData(){
         //console.log(response.user-id);
         //console.log("http://graph.facebook.com/"+response.id+"/picture?type=square");
         //console.log("/{user-id}/picture")
-        //fimage.setAttribute('src', response.picture.data.url);
+        fimage.setAttribute('src', response.picture.data.url);
         fname.innerHTML = 'Name: ' + response.name;
         fmail.innerHTML = 'Email: ' + response.email;
 
