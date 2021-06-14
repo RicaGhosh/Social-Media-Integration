@@ -113,7 +113,7 @@ window.fbAsyncInit = function() {
             console.log("User not Authorized.");
         }
     });*/
-    //FB.AppEvents.logPageView();
+    FB.AppEvents.logPageView();
     //checkLoginState()
 };
 
@@ -129,7 +129,7 @@ function checkLoginState() {
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
             console.log("User authorized.");
-            //getUserData();
+            getUserData();
         } else {
             console.log("User not Authorized yet.");
             FB.login(function(response){
