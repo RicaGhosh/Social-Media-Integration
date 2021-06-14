@@ -124,7 +124,14 @@ window.fbAsyncInit = function() {
 }(document, 'script', 'facebook-jssdk'));
 
 document.getElementById('loginBtn').addEventListener('click', function() {
-
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            console.log("User authorized.");
+            //getUserData();
+        } else {
+            console.log("User not Authorized.");
+        }
+    });
     FB.login(function(response){
         if(response.authResponse){
             console.log("User just authorized.");
