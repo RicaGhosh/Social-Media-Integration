@@ -5,4 +5,4 @@ A single-page Web Application for Logging into Social Media Applications like, G
 
 No backend or server-side programming was used.
 
-Made using : HTML, CSS and JavaScript
+Built using : HTML, CSS and JavaScript
