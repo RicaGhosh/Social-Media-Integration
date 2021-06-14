@@ -75,27 +75,7 @@ fname.style.visibility = 'hidden';
 fmail.style.visibility = 'hidden';
 flo.style.visibility = 'hidden';
 
-function getUserData(){
-    FB.api('/me', {fields: 'name,email,picture.type(large)'}, function(response) {
-        console.log(response)
-        console.log(response.picture.data.url)
-        console.log(response.id);
-        console.log(response.name);
-        console.log(response.email);
-        //console.log(response.photo-id);
-        //console.log(response.user-id);
-        //console.log("http://graph.facebook.com/"+response.id+"/picture?type=square");
-        //console.log("/{user-id}/picture")
-        fimage.setAttribute('src', response.picture.data.url);
-        fname.innerHTML = 'Name: ' + response.name;
-        fmail.innerHTML = 'Email: ' + response.email;
 
-        fimage.style.visibility = 'visible';
-        fname.style.visibility = 'visible';
-        fmail.style.visibility = 'visible';
-        flo.style.visibility = 'visible';
-    }); 
-}
 
 window.fbAsyncInit = function() {
     FB.init({
@@ -113,7 +93,7 @@ window.fbAsyncInit = function() {
             console.log("User not Authorized.");
         }
     });*/
-    FB.AppEvents.logPageView();
+    //FB.AppEvents.logPageView();
     //checkLoginState()
 };
 
@@ -143,6 +123,28 @@ function checkLoginState() {
         }
     });
     
+}
+
+function getUserData(){
+    FB.api('/me', {fields: 'name,email,picture.type(large)'}, function(response) {
+        console.log(response)
+        console.log(response.picture.data.url)
+        console.log(response.id);
+        console.log(response.name);
+        console.log(response.email);
+        //console.log(response.photo-id);
+        //console.log(response.user-id);
+        //console.log("http://graph.facebook.com/"+response.id+"/picture?type=square");
+        //console.log("/{user-id}/picture")
+        fimage.setAttribute('src', response.picture.data.url);
+        fname.innerHTML = 'Name: ' + response.name;
+        fmail.innerHTML = 'Email: ' + response.email;
+
+        fimage.style.visibility = 'visible';
+        fname.style.visibility = 'visible';
+        fmail.style.visibility = 'visible';
+        flo.style.visibility = 'visible';
+    }); 
 }
 
 document.getElementById('logout').addEventListener('click', function() {
