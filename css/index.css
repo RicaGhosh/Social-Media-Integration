@@ -281,10 +281,16 @@ body {
         width: 40%;
         margin: 0 0;
         float : left;
+        background-position:  center center;
+        justify-content: center;
+        align-items: center;
     }
     .container .content .right {
         width: 40%;
         margin: 0 0;
         float : right;
+        background-position:  center center;
+        justify-content: center;
+        align-items: center;
     }
 }
